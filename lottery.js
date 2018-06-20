@@ -1,9 +1,9 @@
 'use strict';
 
-let drawUntilScore = 7;
-let scoreCount;
-let howManyWeeks = 1000;
-let weeksDrawn = 0;
+let drawUntilScore = 7; //set the desired score where simulation will be stopped
+let scoreCount; //store results in an array where index = score
+let howManyWeeks = 1000; //set how many weeks you want to simulate
+let weeksDrawn = 0; //counter for simulation rounds
 let rowScore = 0;
 
 function consoleLog(printThis, printThat) {

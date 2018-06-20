@@ -13,12 +13,13 @@ const app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
+
 app.post('/', (req, res) => {
   console.log(req.body);
   // res.redirect('/');
   lottery.play(req.body.drawUntilScore, req.body.howManyWeeks);
-  const scoreCount = lottery.scoreCount;
-  res.send(scoreCount);
+
+  res.send(lottery.scoreCount);
 });
 
 app.use(express.static('public'));
