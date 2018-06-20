@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lottery</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+  <link href="https://fonts.googleapis.com/css?family=Archivo+Black" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="style.css"> -->
+
+
+</head>
+<body>
+    <header>
+      <h1>Lottery simulation</h1>
+      <p>See how many weeks it will take you to get match-7 in the Finnish Lotto playing a row per week<p>
+    </header>
+
+    <main>
+
+      <form action="/" method="POST">
+        <label for"weeks">Choose simulation length in weeks:</label>
+        <input type="number" name="howManyWeeks" id=weeks min="1" value="10000000">
+
+
+
+        <div class="radio-container">
+          <label>Choose your goal:</label>
+          <input type="radio" id=until7 name=drawUntilScore value="7" checked><label for="until7">7</label>
+          <input type="radio" id=until6 name=drawUntilScore value="6"><label for="until6">6</label>
+          <input type="radio" id=until5 name=drawUntilScore value="5"><label for="until5">5</label>
+          <input type="radio" id=until4 name=drawUntilScore value="4"><label for="until4">4</label>
+          <input type="radio" id=until3 name=drawUntilScore value="3"><label for="until3">3</label>
+          <input type="radio" id=until2 name=drawUntilScore value="2"><label for="until2">2</label>
+        </div>
+
+        <input type="submit" value="Simulate">
+      </form>
+
+        <div id="results">
+
+        </div>
+
+
+    </main>
+
+
+
+  <footer>
+    <p>Lottery simulation by Antti Lylander</p>
+  </footer>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="app.js"></script>
+</body>
+
+</html>
