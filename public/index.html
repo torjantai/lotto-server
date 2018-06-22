@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Lottery</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -12,43 +13,95 @@
 
 </head>
 <body>
-    <header>
-      <h1>Lottery simulation</h1>
-      <p>See how many weeks it will take you to get match-7 in the Finnish Lotto playing a row per week<p>
-    </header>
+  <header>
+    <nav class="navbar navbar-expand-sm navbar-light bg-light">
+      <a class="navbar-brand" href="#">Lottery Simulation</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">Disabled</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
 
-    <main>
+  <main>
 
-      <form action="/" method="POST">
-        <label for"weeks">Choose simulation length in weeks:</label>
-        <input type="number" name="howManyWeeks" id=weeks min="1" value="10000000">
+    <div class="container col-sm-6 rounded mt-4">
+
+      <div class="card">
+        <h5 class="card-header">Lottery</h5>
+        <div class="card-body">
+          <h5 class="card-title">See how long does it take to get a match-7 in the Finnish Lotto</h5>
+          <p class="card-text"></p>
+
+          <div class="container">
+          <form action="/" method="POST">
+            <label for"weeks">Choose simulation length in weeks:</label>
+            <input class="form-control" type="number" name="howManyWeeks" id=weeks min="1" value="10000000">
+          </div>
+
+            <div class="container">
+            <div class="col-xs custom-control custom-radio custom-control-inline">
+              <input class="custom-control-input" type="radio" id=until7 name=drawUntilScore value="7" checked>
+              <label class="custom-control-label" for="until7">7</label>
+            </div>
+            <div class="col-xs custom-control custom-radio custom-control-inline">
+              <input class="custom-control-input" type="radio" id=until6 name=drawUntilScore value="6">
+              <label class="custom-control-label"  for="until6">6</label>
+            </div>
+            <div class="col-xs custom-control custom-radio custom-control-inline">
+              <input class="custom-control-input" type="radio" id=until5 name=drawUntilScore value="5">
+              <label class="custom-control-label"  for="until5">5</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+              <input class="custom-control-input" type="radio" id=until4 name=drawUntilScore value="4">
+              <label class="custom-control-label"  for="until4">4</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+              <input class="custom-control-input" type="radio" id=until3 name=drawUntilScore value="3">
+              <label class="custom-control-label"  for="until3">3</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+              <input class="custom-control-input" type="radio" id=until2 name=drawUntilScore value="2">
+              <label class="custom-control-label"  for="until2">2</label>
+            </div>
+
+            <input class="btn btn-primary" type="submit" value="Simulate">
+          </div>
 
 
+          </form>
 
-        <div class="radio-container">
-          <label>Choose your goal:</label>
-          <input type="radio" id=until7 name=drawUntilScore value="7" checked><label for="until7">7</label>
-          <input type="radio" id=until6 name=drawUntilScore value="6"><label for="until6">6</label>
-          <input type="radio" id=until5 name=drawUntilScore value="5"><label for="until5">5</label>
-          <input type="radio" id=until4 name=drawUntilScore value="4"><label for="until4">4</label>
-          <input type="radio" id=until3 name=drawUntilScore value="3"><label for="until3">3</label>
-          <input type="radio" id=until2 name=drawUntilScore value="2"><label for="until2">2</label>
         </div>
+      </div>
 
-        <input type="submit" value="Simulate">
-      </form>
 
+
+    </div>
         <div id="results">
 
         </div>
 
 
-    </main>
+  </main>
 
 
 
-  <footer>
-    <p>Lottery simulation by Antti Lylander</p>
+  <footer class="navbar fixed-bottom navbar-light bg-light">
+    <div class="container">
+      <p>Lottery simulation by Antti Lylander</p>
+    </div>
   </footer>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
