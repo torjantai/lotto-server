@@ -1,14 +1,18 @@
 'use strict';
 
 let drawUntilScore = 7; //set the desired score where simulation will be stopped
-let scoreCount; //store results in an array where index = score
+//let scoreCount; //store results in an array where index = score
 let howManyWeeks = 1000; //set how many weeks you want to simulate
-let weeksDrawn = 0; //counter for simulation rounds
-let rowScore = 0;
+//let weeksDrawn = 0; //counter for simulation rounds
+//let rowScore = 0;
 
-function consoleLog(printThis, printThat) {
-  console.log(printThis, printThat);
+const results = {
+  weeksDrawn: 0,
+  scoreCount: [0,0,0,0,0,0,0],
+  rowScore: 0
 }
+
+
 
 //this function creates two separate rows that can be compared against each other
 //passes rows to callback
@@ -30,43 +34,49 @@ function createRows(callback) {
 
 //compares the rows and updates scoreCount array accordingly
 function checkRow(rows) {
-  rowScore = 0
+  results.rowScore = 0
   for ( let i = 0; i < 7; i++ ) {
     if ( rows[0].indexOf(rows[1][i]) > -1 ) {
-      rowScore++;
+      results.rowScore++;
     }
   }
-  // console.log(rowScore);
-  // console.log(weeksDrawn);
-  weeksDrawn++;
-// if (rowScore < drawUntilScore) {
-  scoreCount[rowScore]++;
+  results.weeksDrawn++;
+  results.coreCount[results.rowScore]++;
   // }
 }
 
 //runs createRow and checkRow until set conditions are met
 function simulation(callback) {
-  scoreCount = [0,0,0,0,0,0,0,0];
-  weeksDrawn = 0;
+  results.coreCount = [0,0,0,0,0,0,0,0];
+  results.weeksDrawn = 0;
   do {
     createRows(checkRow);
   //  console.log(new Date());
-  } while ( rowScore < drawUntilScore && weeksDrawn < howManyWeeks);
-
-  callback(scoreCount, weeksDrawn);
+} while ( results.rowScore < drawUntilScore && results.weeksDrawn < howManyWeeks);
+  callback(results.coreCount, results.weeksDrawn);
 }
 
+
+function exportResults(printThis, printThat) {
+  console.log(printThis, printThat)
+  results.scoreCount = printThis;
+  results.weeksDrawn = printThat;
+  return module.exports.results = results;
+}
 //simulation(consoleLog);
 
-//takes settings from user, runs the simulation and exports scorecount so that it can be accessed in app.js
+//takes settings from user, runs the simulation and exports scorecount so that it can be accessed outside this file
 function play(theDrawUntilScore, theHowManyWeeks) {
   drawUntilScore = theDrawUntilScore;
   howManyWeeks = theHowManyWeeks;
 
+  simulation(exportResults);
+  // console.log(results);
 
-  simulation(consoleLog);
-  return module.exports.scoreCount = scoreCount;
+
 }
+
+
 
 //play();
 
