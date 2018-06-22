@@ -13,6 +13,10 @@ const app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
+//maybe use res.locals to store data that will be sent to user.
+
+//use pug template engine
+
 
 app.post('/', (req, res) => {
   console.log(req.body);
