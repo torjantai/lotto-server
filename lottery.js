@@ -10,10 +10,10 @@ function consoleLog(printThis, printThat) {
   console.log(printThis, printThat);
 }
 
-//this function creates two separate rows that can be conpared against each other
+//this function creates two separate rows that can be compared against each other
 //passes rows to callback
 function createRows(callback) {
-  const rows =  [ [], [] ];
+  const rows =  [ [0,0,0,0,0,0,0], [0,0,0,0,0,0,0] ];
   let randomBallIndex;
   let balls = [];
   for (let i = 0; i < 2; i++) {
