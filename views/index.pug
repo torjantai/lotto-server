@@ -1,0 +1,37 @@
+extends layout
+
+
+block content
+  .container.col-sm-6.rounded.mt-4
+    .card
+      h5.card-header Lottery
+      .card-body
+        .container
+          h5.card-title See how long does it take to get a match-7 in the Finnish Lotto
+          // <p class="card-text"></p>
+          .mb-3
+            form(action="/" method="POST")
+              label Choose simulation length in weeks:
+              input#weeks.form-control(type="number" name="howManyWeeks" min="1" value="10000000")
+              div
+                span Select your goal:
+                br
+                .col-xs.custom-control.custom-radio.custom-control-inline
+                  input#until7.custom-control-input(type="radio" name="drawUntilScore" value="7" checked="")
+                  label.custom-control-label(for="until7") 7
+                .col-xs.custom-control.custom-radio.custom-control-inline
+                  input#until6.custom-control-input(type="radio" name="drawUntilScore" value="6")
+                  label.custom-control-label(for="until6") 6
+                .col-xs.custom-control.custom-radio.custom-control-inline
+                  input#until5.custom-control-input(type="radio" name="drawUntilScore" value="5")
+                  label.custom-control-label(for="until5") 5
+                .custom-control.custom-radio.custom-control-inline
+                  input#until4.custom-control-input(type="radio" name="drawUntilScore" value="4")
+                  label.custom-control-label(for="until4") 4
+                .custom-control.custom-radio.custom-control-inline
+                  input#until3.custom-control-input(type="radio" name="drawUntilScore" value="3")
+                  label.custom-control-label(for="until3") 3
+                .custom-control.custom-radio.custom-control-inline.mb-2
+                  input#until2.custom-control-input(type="radio" name="drawUntilScore" value="2")
+                  label.custom-control-label(for="until2") 2
+              input.btn.btn-primary(type="submit" value="Simulate")

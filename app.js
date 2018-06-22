@@ -3,30 +3,34 @@
 const lottery = require('./lottery');
 const express = require('express');
 const bodyParser = require('body-parser');
+const pug = require('pug');
 
 const app = express();
 
-
-// app.get('/', (req, res) => {
-//   res.send('hello');
-// })
-
+//use body-parser
 app.use(bodyParser.urlencoded({ extended: false }));
 
 //maybe use res.locals to store data that will be sent to user.
 
-//use pug template engine
+// view engine setup
+app.set('view engine', 'pug');
+app.set('views', __dirname + '/views');
 
 
-app.post('/', (req, res) => {
-  console.log(req.body);
-  // res.redirect('/');
-  lottery.play(req.body.drawUntilScore, req.body.howManyWeeks);
+//use routes
+const routes = require('./routes/index');
+app.use('/', routes);
 
-  res.send(lottery.scoreCount);
-});
+
+
+
+
+
 
 app.use(express.static('public'));
+
+
+//handle some errors maybe
 
 
 app.listen(3000, () => console.log('listening on port 3000'));
