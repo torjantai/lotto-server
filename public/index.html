@@ -45,13 +45,14 @@
           <h5 class="card-title">See how long does it take to get a match-7 in the Finnish Lotto</h5>
           <p class="card-text"></p>
 
-          <div class="container">
+          <div class="container mb-3">
           <form action="/" method="POST">
             <label for"weeks">Choose simulation length in weeks:</label>
             <input class="form-control" type="number" name="howManyWeeks" id=weeks min="1" value="10000000">
           </div>
 
             <div class="container">
+             <span>Select your goal:</span><br>
             <div class="col-xs custom-control custom-radio custom-control-inline">
               <input class="custom-control-input" type="radio" id=until7 name=drawUntilScore value="7" checked>
               <label class="custom-control-label" for="until7">7</label>
@@ -72,7 +73,7 @@
               <input class="custom-control-input" type="radio" id=until3 name=drawUntilScore value="3">
               <label class="custom-control-label"  for="until3">3</label>
             </div>
-            <div class="custom-control custom-radio custom-control-inline">
+            <div class="custom-control custom-radio custom-control-inline mb-2">
               <input class="custom-control-input" type="radio" id=until2 name=drawUntilScore value="2">
               <label class="custom-control-label"  for="until2">2</label>
             </div>
