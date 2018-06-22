@@ -8,12 +8,13 @@ router.get('/', function(req, res, next){
   return res.render('index', {});
 });
 
-//post / root is used to get settings from user and start the simulation
+//post / is used to get settings from user and start the simulation, then render results
 router.post('/', (req, res) => {
   console.log(req.body);
-  // res.redirect('/');
   lottery.play(req.body.drawUntilScore, req.body.howManyWeeks);
-  return res.render('results', {results: lottery.scoreCount});
+  const scoreCount = lottery.results.scoreCount;
+  const weeksDrawn = lottery.results.weeksDrawn;
+  return res.render('results', { scoreCount: scoreCount, weeksDrawn: weeksDrawn });
 });
 
 router.get('/results', function(req, res, next){
