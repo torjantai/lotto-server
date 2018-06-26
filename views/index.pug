@@ -2,7 +2,7 @@ extends layout
 
 
 block content
-  .container.col-sm-6.rounded.mt-4
+  .container.rounded.mt-4#container-main
     .card
       h5.card-header Lottery
       .card-body
@@ -12,7 +12,7 @@ block content
           .mb-3
             form(action="/" method="POST")
               label Choose simulation length in weeks:
-              input#weeks.form-control(type="number" name="howManyWeeks" min="1" value="10000000")
+              input#weeks.form-control(type="number" name="howManyWeeks" min="1" max="1000000" value="1000000")
               div
                 span Select your goal:
                 br
@@ -34,4 +34,6 @@ block content
                 .custom-control.custom-radio.custom-control-inline.mb-2
                   input#until2.custom-control-input(type="radio" name="drawUntilScore" value="2")
                   label.custom-control-label(for="until2") 2
-              input.btn.btn-primary(type="submit" value="Simulate")
+              input#submit.btn.btn-primary(type="submit" value="Simulate")
+
+            p#testi

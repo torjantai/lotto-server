@@ -1,9 +1,20 @@
 extend layout
 
 block content
-  p Behold, the results:
-  p iterations: #{weeksDrawn}
-  div
-    ul
-      each val, index in scoreCount
-        li= index +'-matches: ' + val +' times'
+    .container.rounded.mt-4#container-main
+      .card
+        h5.card-header Results
+        .card-body
+          .container
+            h5.card-title Simulation was run #{weeksDrawn} times
+            //- <p class="card-text"></p>
+            .mb-3
+                //-p Simulation was run #{weeksDrawn} times
+                div
+                  ul
+                    each val, index in scoreCount
+                      li= index +'-matches: ' + val
+            a.btn.btn-primary(role="button" href='/') Try Again
+    
+    
+    

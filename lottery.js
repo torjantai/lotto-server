@@ -17,12 +17,17 @@ const results = {
 //this function creates two separate rows that can be compared against each other
 //passes rows to callback
 function createRows(callback) {
-  const rows =  [ [0,0,0,0,0,0,0], [0,0,0,0,0,0,0] ];
+  const rows =  [[0,0,0,0,0,0,0]
+                ,[0,0,0,0,0,0,0]
+                ];
   let randomBallIndex;
   let balls = [];
   for (let i = 0; i < 2; i++) {
-    balls = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20
-                  ,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40];
+    balls = [1,2,3,4,5,6,7,8,9,10
+            ,11,12,13,14,15,16,17,18,19,20
+            ,21,22,23,24,25,26,27,28,29,30
+            ,31,32,33,34,35,36,37,38,39,40
+            ];
     for (let j = 0; j < 7; j++) {
       randomBallIndex = Math.floor(Math.random()*balls.length);
       rows[i][j] = balls[randomBallIndex];
@@ -41,29 +46,28 @@ function checkRow(rows) {
     }
   }
   results.weeksDrawn++;
-  results.coreCount[results.rowScore]++;
-  // }
+  results.scoreCount[results.rowScore]++;
 }
 
 //runs createRow and checkRow until set conditions are met
 function simulation(callback) {
-  results.coreCount = [0,0,0,0,0,0,0,0];
+  results.scoreCount = [0,0,0,0,0,0,0,0];
   results.weeksDrawn = 0;
   do {
     createRows(checkRow);
   //  console.log(new Date());
 } while ( results.rowScore < drawUntilScore && results.weeksDrawn < howManyWeeks);
-  callback(results.coreCount, results.weeksDrawn);
+  callback(results.scoreCount, results.weeksDrawn);
 }
 
-
+//funtion that is used as a callback for simulation in order to export results
 function exportResults(printThis, printThat) {
   console.log(printThis, printThat)
   results.scoreCount = printThis;
   results.weeksDrawn = printThat;
   return module.exports.results = results;
 }
-//simulation(consoleLog);
+
 
 //takes settings from user, runs the simulation and exports scorecount so that it can be accessed outside this file
 function play(theDrawUntilScore, theHowManyWeeks) {

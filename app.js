@@ -23,14 +23,27 @@ app.use('/', routes);
 
 
 
-
-
-
-
 app.use(express.static('public'));
 
 
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  const err = new Error('Page Not Found');
+  err.status = 404;
+  next(err);
+});
+
+// error handler
+app.use(function(err, req, res, next) {
+  res.status(err.status || 500);
+  res.render('error', {
+    status: err.status,
+    message: err.message,
+    error: {}
+  });
+});
+
 //handle some errors maybe
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => console.log(`listening on port ${PORT}`));
